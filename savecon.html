@@ -1,0 +1,30 @@
+{% include "myHader.html" %}
+{% include "myNav.html" %}
+{% csrf_token %}
+<hr color="orange" size="10 />
+<h1 algin="center">show data base </h1>
+<hr color="green" />
+<table class="table table-bordered table-dark">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>User_pic</th>
+    </tr>
+    </thead>
+    <body>
+{% for row in userData %}
+
+<tr>
+    <td>{{ row.id }}</td>
+     <td>{{ row.name }}</td>
+     <td>{{ row.phone }}</td>
+    <td>{{ row.user_pic }}</td>
+
+    <td> <img class="rounded-circle" src="/media/{{ row.user_pic}}" width="100px" hight="100px"></td>
+</tr>
+{% endfor %}
+<body>
+</table>
+{% include "footer.html" %}
